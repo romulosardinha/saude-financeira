@@ -1,0 +1,17 @@
+{
+  "name": "gastosFuturos",
+  "displayName": "gastosFuturos",
+  "expo": {
+    "name": "gastosFuturos",
+    "slug": "gastosFuturos",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
