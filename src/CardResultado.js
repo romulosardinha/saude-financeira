@@ -18,7 +18,7 @@ export const CardResultado = (props) => {
                                 >
                                     <Text style={{ color: 'white', fontSize: 35, fontWeight: 'bold', marginBottom: 10 }}>Parabés</Text>
                                     <Text style={{ color: 'white' }}>Sua saúde financeira vai bem</Text>
-                                    <Text style={{ color: 'white' }}>Final do ano você terá uma poupança de:</Text>
+                                    <Text style={{ color: 'white' }}>Ano que vem você terá uma poupança de:</Text>
                                     <Text style={{ color: 'white', fontSize: 25, marginTop: 10 }}>R$ {props.resultado.toLocaleString('pt-BR')},00</Text>
                                 </Card>
                                 : null
@@ -31,7 +31,7 @@ export const CardResultado = (props) => {
                                 >
                                     <Text style={{ color: 'white', fontSize: 35, fontWeight: 'bold', marginBottom: 10 }}>Você pode melhorar</Text>
                                     <Text style={{ color: 'white' }}>Sua saúde financeira vai bem</Text>
-                                    <Text style={{ color: 'white' }}>Final do ano você terá uma poupança de:</Text>
+                                    <Text style={{ color: 'white' }}>Ano que vem você terá uma poupança de:</Text>
                                     <Text style={{ color: 'white', fontSize: 25, marginTop: 10 }}>R$ {props.resultado.toLocaleString('pt-BR')},00</Text>
                                 </Card>
                                 : null
@@ -44,7 +44,7 @@ export const CardResultado = (props) => {
                                 >
                                     <Text style={{ color: 'white', fontSize: 35, fontWeight: 'bold', marginBottom: 10 }}>Ops...</Text>
                                     <Text style={{ color: 'white' }}>Sua saúde financeira não vai bem</Text>
-                                    <Text style={{ color: 'white' }}>Final do ano você terá uma dívida de:</Text>
+                                    <Text style={{ color: 'white' }}>Ano que vem você terá uma dívida de:</Text>
                                     <Text style={{ color: 'white', fontSize: 25, marginTop: 10 }}>R$ {props.resultado.toLocaleString('pt-BR')},00</Text>
                                 </Card>
                                 : null
