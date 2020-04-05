@@ -15,7 +15,7 @@ export const InputText = (props) => (
             }}
         >{props.label}</Text>
         <Card>
-            <TextInput placeholder={props.label} />
+            <TextInput placeholder={props.label} {...props}/>
         </Card>
     </View>
 )
