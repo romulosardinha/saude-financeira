@@ -22,7 +22,10 @@ export default function App() {
     combustivel: 0,
     outros: 0,
   })
-  const setgastos = (obj) => _setgastos({ ...merge(gastos, obj) })
+  const setgastos = (obj) => {
+    setresultado('')
+    _setgastos({ ...merge(gastos, obj) })
+  }
 
   const [resultado, setresultado] = useState('')
 
@@ -57,7 +60,7 @@ export default function App() {
           <Text style={styles.instructions}>Vamos ver como está sua saúde financeira</Text>
           <Text style={styles.instructions}>para o próximo ano</Text>
 
-          <CardResultado resultado={resultado} salario={gastos.salario}/>
+          <CardResultado resultado={resultado} salario={gastos.salario} />
 
           <InputText label='Seu salário mensal' value={String(gastos.salario || '')} onChangeText={(text) => setgastos({ salario: isNaN(Number(text)) ? gastos.salario : Number(text) })} />
 
