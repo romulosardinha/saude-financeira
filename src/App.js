@@ -57,7 +57,7 @@ export default function App() {
           <Text style={styles.instructions}>Vamos ver como está sua saúde financeira</Text>
           <Text style={styles.instructions}>para o próximo ano</Text>
 
-          <CardResultado resultado={resultado} />
+          <CardResultado resultado={resultado} salario={gastos.salario}/>
 
           <InputText label='Seu salário mensal' value={String(gastos.salario || '')} onChangeText={(text) => setgastos({ salario: isNaN(Number(text)) ? gastos.salario : Number(text) })} />
 
