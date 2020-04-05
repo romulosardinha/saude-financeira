@@ -24,6 +24,24 @@ export default function App() {
   })
   const setgastos = (obj) => _setgastos({ ...merge(gastos, obj) })
 
+  const [resultado, setresultado] = useState('')
+
+  const calcular = () => {
+    let meses = 12
+    let result
+    result = meses * gastos.salario
+    result -= meses * gastos.supermercado
+    result -= meses * gastos.luz
+    result -= meses * gastos.agua
+    result -= meses * gastos.internet
+    result -= meses * gastos.combustivel
+    result -= meses * gastos.outros
+    return result
+  }
+
+  const gerarResultado = () => {
+    setresultado(calcular())
+  }
 
   return (
     <KeyboardAvoidingView behavior="padding" enabled style={{ flex: 1 }}>
@@ -39,23 +57,23 @@ export default function App() {
           <Text style={styles.instructions}>Vamos ver como está sua saúde financeira</Text>
           <Text style={styles.instructions}>para o próximo ano</Text>
 
-          <CardResultado />
+          <CardResultado resultado={resultado} />
 
-          <InputText label='Seu salário mensal' value={String(gastos.salario||'')} onChangeText={(text) => setgastos({ salario: isNaN(Number(text)) ? gastos.salario : Number(text) })}/>
+          <InputText label='Seu salário mensal' value={String(gastos.salario || '')} onChangeText={(text) => setgastos({ salario: isNaN(Number(text)) ? gastos.salario : Number(text) })} />
 
           <Space height={40} />
 
           <Text style={styles.instructions}>Informe abaixo os valores dos seus gastor por MÊS</Text>
 
-          <InputText label='Gasto com supermercado' value={String(gastos.supermercado||'')} onChangeText={(text) => setgastos({ supermercado: isNaN(Number(text)) ? gastos.supermercado : Number(text) })} />
-          <InputText label='Conta de luz' value={String(gastos.luz||'')} onChangeText={(text) => setgastos({ luz: isNaN(Number(text)) ? gastos.luz : Number(text) })}/>
-          <InputText label='Conta de água' value={String(gastos.agua||'')} onChangeText={(text) => setgastos({ agua: isNaN(Number(text)) ? gastos.agua : Number(text) })}/>
-          <InputText label='Conta de internet/tv' value={String(gastos.internet||'')} onChangeText={(text) => setgastos({ internet: isNaN(Number(text)) ? gastos.internet : Number(text) })}/>
-          <InputText label='Gasto em combustivel/transporte' value={String(gastos.combustivel||'')} onChangeText={(text) => setgastos({ combustivel: isNaN(Number(text)) ? gastos.combustivel : Number(text) })}/>
-          <InputText label='Qualquer outros gastos' value={String(gastos.outros||'')} onChangeText={(text) => setgastos({ outros: isNaN(Number(text)) ? gastos.outros : Number(text) })}/>
+          <InputText label='Gasto com supermercado' value={String(gastos.supermercado || '')} onChangeText={(text) => setgastos({ supermercado: isNaN(Number(text)) ? gastos.supermercado : Number(text) })} />
+          <InputText label='Conta de luz' value={String(gastos.luz || '')} onChangeText={(text) => setgastos({ luz: isNaN(Number(text)) ? gastos.luz : Number(text) })} />
+          <InputText label='Conta de água' value={String(gastos.agua || '')} onChangeText={(text) => setgastos({ agua: isNaN(Number(text)) ? gastos.agua : Number(text) })} />
+          <InputText label='Conta de internet/tv' value={String(gastos.internet || '')} onChangeText={(text) => setgastos({ internet: isNaN(Number(text)) ? gastos.internet : Number(text) })} />
+          <InputText label='Gasto em combustivel/transporte' value={String(gastos.combustivel || '')} onChangeText={(text) => setgastos({ combustivel: isNaN(Number(text)) ? gastos.combustivel : Number(text) })} />
+          <InputText label='Qualquer outros gastos' value={String(gastos.outros || '')} onChangeText={(text) => setgastos({ outros: isNaN(Number(text)) ? gastos.outros : Number(text) })} />
 
           <Button title='Calcular' onPress={() => {
-            console.log(gastos)
+            gerarResultado()
             scrollView.current.scrollTo({ x: 0, y: 0, animated: true })
           }
           } />
